@@ -1,3 +1,5 @@
+$(document).ready(readyNow);
+
 const employees = [
   {
     name: 'Atticus',
@@ -34,12 +36,9 @@ const employees = [
 console.log (`We are here.`);
 
 const bonusCalculator = (employee) => {
-    console.log (`We are in the bonusCalc fn`);
     const returnArray=[];
     let bonusValue = 0; 
     let totalCompensation = 0;
-
-    console.log (`employee`, employee);
 
 
     switch ( employee.reviewRating ) {
@@ -82,8 +81,6 @@ const bonusCalculator = (employee) => {
     }
     totalCompensation = bonusValue + employee.annualSalary
 
-    console.log (`bonus amount` , bonusValue);
-    
     function greaterThen15() { 
       return employee.employeeNumber.length < 5;   
     } // end of greaterThen15 fn
@@ -101,8 +98,12 @@ let testEmployee = bonusCalculator ({
   annualSalary: '35000',
   reviewRating: 1
 })
-console.log (`Return Array:` , testEmployee);
+let el = $('#employeeList');
 
+for (let item of employees) {   
+  el.append( '<li>' + bonusCalculator(item) + '</li>'); 
+  console.log (`bonusCalculator(item)`, bonusCalculator(item));
+}
 
 
 
