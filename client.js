@@ -31,6 +31,55 @@ const employees = [
   }
 ];
 
+console.log (`We are here.`);
+
+const bonusCalculator = (employee) => {
+
+    const returnArray=[];
+    let bonusValue = 0;
+    let totalCompensation = 0;
+
+    switch ( employee.reviewRating ) {
+    case 5: 
+      bonusValue = employee.annualSalary * .10
+      totalCompensation = bonusValue + employee.annualSalary
+      break;
+    case 4: 
+      //code
+      break;
+    case 3:
+      // code
+      break;
+    case 2: 
+      //code
+      break;
+    case 1:
+      //code
+      break;
+    default:
+      console.log (`Error in Case Logic`);
+    };
+    
+    
+
+//   The `name` property should contain the employee's name.
+// * The `bonusPercentage` property should contain the bonus percentage the employee is to receive. See section below for calculation instructions.
+// * The `totalCompensation` property should be the adjusted annual compensation (base annual + bonus)
+// * The `totalBonus` should be th
+
+    return returnArray;  
+};
+
+// - Those who have a rating of a 2 or below should not receive a bonus.
+// - Those who have a rating of a 3 should receive a base bonus of 4% of their base annual income.
+// - Those who have a rating of a 4 should receive a base bonus of 6% of their base annual income.
+// - Those who have a rating of a 5 should receive a base bonus of 10% of their base annual income.
+// - If their employee number is 4 digits long, this means they have been with the company for longer than 15 years,
+// and should receive an additional 5%.
+// - However, if their annual income is greater than $65,000, they should have their bonus adjusted down 1%.
+// - No bonus can be above 13% or below 0% total.
+
+
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
 // Take small steps! Don't write a for loop and two functions that do all of the calculations right away.
