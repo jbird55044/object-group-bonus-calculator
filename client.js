@@ -13,7 +13,7 @@ const employees = [
   },
   {
     name: 'Scout',
-    employeeNumber: '6243',
+    employeeNumber: '6243', 
     annualSalary: '74750',
     reviewRating: 5
   },
@@ -36,13 +36,28 @@ console.log (`We are here.`);
 const bonusCalculator = (employee) => {
 
     const returnArray=[];
-    let bonusValue = 0;
+    let bonusValue = 0; 
     let totalCompensation = 0;
+  
 
     switch ( employee.reviewRating ) {
     case 5: 
       bonusValue = employee.annualSalary * .10
+      if (greaterThen10()) { 
+      bonusValue += employee.annualSalary * .05
+      }
+      if (employee.annualSalary > 65000) {
+        bonusValue -= employee.annualSalary * .01
+      } 
+      let bonusPercentage = bonusValue/employee.annualSalary 
+      if (bonusPercentage < 0) {
+        bonusValue = 0; 
+      } 
+      else if (bonusPercentage > .13) { 
+        bonuValue = employee.annualSalary * .13
+      }
       totalCompensation = bonusValue + employee.annualSalary
+    
       break;
     case 4: 
       //code
@@ -60,7 +75,9 @@ const bonusCalculator = (employee) => {
       console.log (`Error in Case Logic`);
     };
     
-    
+    function greaterThen10() { 
+      return employeeNumber.length < 5;   
+    }
 
 //   The `name` property should contain the employee's name.
 // * The `bonusPercentage` property should contain the bonus percentage the employee is to receive. See section below for calculation instructions.
@@ -69,6 +86,8 @@ const bonusCalculator = (employee) => {
 
     return returnArray;  
 };
+
+
 
 // - Those who have a rating of a 2 or below should not receive a bonus.
 // - Those who have a rating of a 3 should receive a base bonus of 4% of their base annual income.

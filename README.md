@@ -1,6 +1,6 @@
 # Bonus Calculator App
 
-## Objectives
+## Objectives 
 
 - Practice Read, Write, Speak, Teach skills
 - Solidify JavaScript knowledge
