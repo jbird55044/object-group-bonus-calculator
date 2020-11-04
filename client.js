@@ -43,39 +43,47 @@ const bonusCalculator = (employee) => {
     switch ( employee.reviewRating ) {
     case 5: 
       bonusValue = employee.annualSalary * .10
-      if (greaterThen10()) { 
-      bonusValue += employee.annualSalary * .05
-      }
-      if (employee.annualSalary > 65000) {
-        bonusValue -= employee.annualSalary * .01
-      } 
-      let bonusPercentage = bonusValue/employee.annualSalary 
-      if (bonusPercentage < 0) {
-        bonusValue = 0; 
-      } 
-      else if (bonusPercentage > .13) { 
-        bonuValue = employee.annualSalary * .13
-      }
-      totalCompensation = bonusValue + employee.annualSalary
-    
       break;
     case 4: 
-      //code
+      bonusValue = employee.annualSalary * .06
       break;
     case 3:
-      // code
+      bonusValue = employee.annualSalary * .04
       break;
     case 2: 
-      //code
+      bonusValue = employee.annualSalary * 0
       break;
     case 1:
-      //code
+      bonusValue = employee.annualSalary * 0
       break;
     default:
       console.log (`Error in Case Logic`);
     };
     
-    function greaterThen10() { 
+
+    if (greaterThen15()) { 
+      bonusValue += employee.annualSalary * .05
+    }
+    if (employee.annualSalary > 65000) {
+      bonusValue -= employee.annualSalary * .01
+    } 
+    
+    let bonusPercentage = bonusValue/employee.annualSalary 
+    if (bonusPercentage < 0) {
+      bonusValue = 0; 
+    } 
+    else if (bonusPercentage > .13) { 
+      bonusValue = employee.annualSalary * .13
+    }
+    totalCompensation = bonusValue + employee.annualSalary
+    
+
+
+
+
+
+
+    function greaterThen15() { 
       return employeeNumber.length < 5;   
     }
 
