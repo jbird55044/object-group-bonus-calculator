@@ -98,11 +98,16 @@ let testEmployee = bonusCalculator ({
   annualSalary: '35000',
   reviewRating: 1
 })
-let el = $('#employeeList');
 
-for (let item of employees) {   
-  el.append( '<li>' + bonusCalculator(item) + '</li>'); 
-  console.log (`bonusCalculator(item)`, bonusCalculator(item));
+
+function readyNow(){ 
+  for (let item of employees) {   
+    let employeeRecord = bonusCalculator(item);  
+    let employeeString = employeeRecord.name + ' ' +  employeeRecord.totalCompensation + ' ' + employeeRecord.totalBonus + ' ' + employeeRecord.bonusPercentage;  
+    let el = $('#employeeList');
+    el.append( '<li>' + employeeString + '</li>'); 
+    console.log (`bonusCalculator(item)`, bonusCalculator(item));
+  }
 }
 
 
@@ -117,4 +122,4 @@ for (let item of employees) {
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
-//console.log( employees );
+//console.log( employees ); + 
