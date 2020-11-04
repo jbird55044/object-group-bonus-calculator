@@ -34,11 +34,13 @@ const employees = [
 console.log (`We are here.`);
 
 const bonusCalculator = (employee) => {
-
+    console.log (`We are in the bonusCalc fn`);
     const returnArray=[];
     let bonusValue = 0; 
     let totalCompensation = 0;
-  
+
+    console.log (`employee`, employee);
+
 
     switch ( employee.reviewRating ) {
     case 5: 
@@ -54,6 +56,7 @@ const bonusCalculator = (employee) => {
       bonusValue = employee.annualSalary * 0
       break;
     case 1:
+      console.log (`in case 1`);
       bonusValue = employee.annualSalary * 0
       break;
     default:
@@ -71,40 +74,37 @@ const bonusCalculator = (employee) => {
     let bonusPercentage = bonusValue/employee.annualSalary 
     if (bonusPercentage < 0) {
       bonusValue = 0; 
+      bonusPercentage = 0;
     } 
     else if (bonusPercentage > .13) { 
       bonusValue = employee.annualSalary * .13
+      bonusPercentage = .13;
     }
     totalCompensation = bonusValue + employee.annualSalary
+
+    console.log (`bonus amount` , bonusValue);
     
-
-
-
-
-
-
     function greaterThen15() { 
-      return employeeNumber.length < 5;   
-    }
+      return employee.employeeNumber.length < 5;   
+    } // end of greaterThen15 fn
 
-//   The `name` property should contain the employee's name.
-// * The `bonusPercentage` property should contain the bonus percentage the employee is to receive. See section below for calculation instructions.
-// * The `totalCompensation` property should be the adjusted annual compensation (base annual + bonus)
-// * The `totalBonus` should be th
-
+    returnArray.name = employee.name;
+    returnArray.bonusPercentage = bonusPercentage;
+    returnArray.totalCompensation = totalCompensation;
+    returnArray.totalBonus = bonusValue;
     return returnArray;  
-};
+}; // end of bonusCalculator fn
+
+let testEmployee = bonusCalculator ({
+  name: 'Mayella',
+  employeeNumber: '89068',
+  annualSalary: '35000',
+  reviewRating: 1
+})
+console.log (`Return Array:` , testEmployee);
 
 
 
-// - Those who have a rating of a 2 or below should not receive a bonus.
-// - Those who have a rating of a 3 should receive a base bonus of 4% of their base annual income.
-// - Those who have a rating of a 4 should receive a base bonus of 6% of their base annual income.
-// - Those who have a rating of a 5 should receive a base bonus of 10% of their base annual income.
-// - If their employee number is 4 digits long, this means they have been with the company for longer than 15 years,
-// and should receive an additional 5%.
-// - However, if their annual income is greater than $65,000, they should have their bonus adjusted down 1%.
-// - No bonus can be above 13% or below 0% total.
 
 
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
@@ -116,4 +116,4 @@ const bonusCalculator = (employee) => {
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
-console.log( employees );
+//console.log( employees );
