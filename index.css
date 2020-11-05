@@ -1,0 +1,10 @@
+.tableClass {
+    width: 400px;
+    margin: 25px;
+    background-color: antiquewhite;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 5px;
+  }
